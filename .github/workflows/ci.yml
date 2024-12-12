@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  test:
+  backend:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,3 +29,22 @@ jobs:
 
       - name: Start the backend
         run: python src/model_server/server.py
+
+
+  extension:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      
+      - name: install Node packages
+        run: yarn install
+
+      - name: package extension to VSIX
+        run: yarn package
