@@ -42,8 +42,7 @@ jobs:
       
       - name: install Node packages
         run: |
-          yarn install -g vsce
-          yarn install
+          npm install
 
       - name: package extension to VSIX
         run: yarn package
