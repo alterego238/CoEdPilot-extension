@@ -23,5 +23,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
       - name: Run tests
-        run: pytest
+        run: python ./init-server.py typescript
+
+      - name: Start the backend
+        run: python src/model_server/server.py
