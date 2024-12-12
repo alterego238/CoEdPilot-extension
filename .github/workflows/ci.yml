@@ -42,7 +42,7 @@ jobs:
       
       - name: install Node packages
         run: |
-          npm install -g vsce
+          yarn global add @vscode/vsce
           yarn install
 
       - name: package extension to VSIX
