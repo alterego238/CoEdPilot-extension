@@ -24,11 +24,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run tests
+      - name: init server
         run: python ./init-server.py typescript
-
-      - name: Start the backend
-        run: python src/model_server/server.py
 
 
   extension:
@@ -44,7 +41,9 @@ jobs:
           node-version: '16'
       
       - name: install Node packages
-        run: yarn install
+        run: |
+        yarn install -g vsce
+        yarn install
 
       - name: package extension to VSIX
         run: yarn package
